@@ -1,0 +1,6 @@
+.invoice-info{
+      width: calc(100vw - 100px);
+}
+
+@import './invoiceHeader.scss';
+@import './invoiceBody.scss';

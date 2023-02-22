@@ -1,0 +1,107 @@
+.main-header {
+      width: 730px;
+      margin: 72px auto 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
+}
+
+.main-header__col-left {
+      .logo-name {
+            font-size: 40px;
+      }
+
+      .col-left__title {
+            font-size: 16px;
+            color: var(--text-regular);
+      }
+}
+
+.main-header__col-right {
+      display: flex;
+
+      .col-right__filter-btn {
+            margin-right: 10px;
+            background: transparent;
+            padding: 5px 15px;
+            @include main-header__btn;
+
+            .arrow-down {
+                  font-size: 20px;
+                  color: #7c5dfa;
+            }
+      }
+
+      .col-right__new-btn {
+            padding: 8px;
+            @include main-header__btn;
+            background: #7c5dfa;
+            border-radius: 50px;
+            color: #fff;
+
+            .plus-circle {
+                  font-size: 30px;
+                  margin-right: 10px;
+            }
+      }
+}
+
+//// Invoice Qo'shish joyi
+.invoice-add {
+      width: 50%;
+      background: rgba(0, 0, 0, 0.8);
+      position: fixed;
+      left: 0;
+      z-index: 21;
+      color: #fff;
+      height: 175vh;
+      opacity: 0;
+      transition: 0.5s;
+
+      #add-form {
+            position: fixed;
+            top: 110px;
+            left: 13%;
+            width: 350px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+
+            input {
+                  height: 35px;
+                  padding: 5px 10px;
+                  font-weight: 600;
+                  font-size: 14px;
+                  margin: 5px 0;
+            }
+
+            label {
+                  margin-top: 10px;
+            }
+
+            #userSelect {
+                  height: 35px;
+                  padding: 5px 10px;
+                  font-weight: 600;
+                  font-size: 14px;
+                  margin: 5px 0;
+            }
+
+            #add-btn {
+                  margin-top: 15px;
+                  width: 100px;
+                  padding: 10px 20px;
+                  font-weight: bold;
+                  background: #7c5dfa;
+                  border: none;
+                  color: #fff;
+                  letter-spacing: 1.5px;
+                  border-radius: 5px;
+            }
+      }
+}
+
+.hide-show{
+      opacity: 1;
+}

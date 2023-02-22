@@ -1,0 +1,43 @@
+.sidebar {
+      width: 100px;
+      height: 100vh;
+}
+
+.box{
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--sidebar-bg);
+      border-radius: 0 20px 20px 0;
+}
+
+.card-top {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: calc(100vh - 100px);
+      align-items: center;
+      border-bottom: 1px solid #494e6e;
+
+      .sidebar__logo {
+            width: 100%;
+      }
+
+      .night-light {
+            width: 30px;
+            margin-bottom: 30px;
+      }
+}
+
+.card-bottom {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+
+      .avatar {
+            border-radius: 50%;
+            width: 50px;
+      }
+}

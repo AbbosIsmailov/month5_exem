@@ -1,0 +1,13 @@
+@mixin main-header__btn {
+      height: 45px;
+      border: none;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+}
+
+@mixin invoice-header__btn {
+      height: 50px;
+      padding: 10px 20px;
+      border-radius: 10px;
+}

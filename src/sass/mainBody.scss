@@ -1,0 +1,63 @@
+.main-body {
+      width: 730px;
+      margin: 10px auto 0 auto;
+}
+
+.invoices-list {
+      list-style: none;
+}
+
+.element-box{
+      background: #fff;
+      margin: 10px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 20px;
+}
+
+.invoices-list__link{
+      text-decoration: none;
+}
+
+.elem-left{
+      display: flex;
+
+      .invoice-to{
+            margin-left: 20px;
+      }
+}
+
+.elem-right{
+      display: flex;
+      align-items: center;
+      color: #000;
+
+      .invoice-price {
+            margin-right: 20px;
+            font-size: 25px;
+            font-weight: 700;
+      }
+
+      .invoicePaid{
+            border: 1px solid;
+            width: 100px;
+            padding: 5px 20px;
+            text-align: center;
+            border-radius: 5px;
+      }
+
+      .invoice-success{
+            border: 1.5px solid rgb(7, 251, 137);
+            background: rgba(51, 214, 159, 1);
+            color: #fff;
+            font-weight: bold;
+      }
+
+      .invoice-danger{
+            border: 1.5px solid rgb(255, 52, 2);
+            background: tomato;
+            color: #fff;
+            font-weight: bold;
+      }
+}

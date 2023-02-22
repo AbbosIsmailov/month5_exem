@@ -1,0 +1,39 @@
+.login-page{
+      width: calc(100vw - 10px);
+      height: 100vh;
+      background: #181b33;
+      color: white;
+}
+
+#login-form{
+      width: 500px;
+      margin: 30vh auto;
+      display: flex;
+      border: 1px dashed;
+      padding: 30px 20px;
+      flex-direction: column;
+      font-weight: 500;
+      #login-email{
+            height: 35px;
+            margin-bottom: 20px;
+            margin-top: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+      }
+      #login-password{
+            height: 35px;
+            margin-top: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+      }
+      .login-btn{
+            width: 150px;
+            height: 35px;
+            background: #fff;
+            color: #000000;
+            font-weight: 600;
+            margin-top: 10px;
+            font-size: 14px;
+            cursor: pointer;
+      }
+}
