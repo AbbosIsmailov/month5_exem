@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "../assets/logo.png";
-import moon from "../assets/icon-moon.svg";
-import avatar from "../assets/image-avatar.jpg";
+import logo from "../assets/images/logo.png";
+import moon from "../assets/images/icon-moon.svg";
+import avatar from "../assets/images/image-avatar.jpg";
 
 function SideBar() {
   return (

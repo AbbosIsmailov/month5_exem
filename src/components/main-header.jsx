@@ -6,12 +6,13 @@ import { getAccessToken } from "../utilits/localeStorage";
 
 function MainHeader() {
   const [addInvoice, setAddInvoice] = useState([]);
- 
+
   function addHideShowFunction() {
     const invoiceAdd = document.getElementsByClassName("invoice-add")[0];
     invoiceAdd.classList.toggle("hide-show");
     invoiceTest();
   }
+
   function invoiceTest() {
     const userTo = document.getElementById("userTo");
     const userEmail = localStorage.getItem("userEmail");
@@ -47,7 +48,6 @@ function MainHeader() {
         )
         .then((res) => {
           setAddInvoice(res.data);
-          console.log(res.data);
         })
         .catch((error) => {
           console.log("Qo'shib bo'lmadi");
@@ -97,9 +97,7 @@ function MainHeader() {
           />
           <label htmlFor="userPrice">Price</label>
           <input required id="userPrice" type="number" placeholder="Price" />
-          <button id="add-btn">
-            Submit
-          </button>
+          <button id="add-btn">Submit</button>
         </form>
       </div>
       <div className="main-header__col-left">
