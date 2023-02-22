@@ -2,42 +2,57 @@ import React, { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { AiFillPlusCircle } from "react-icons/ai";
 import axios from "axios";
+import { getAccessToken } from "../utilits/localeStorage";
 
 function MainHeader() {
   const [addInvoice, setAddInvoice] = useState([]);
-
+ 
   function addHideShowFunction() {
     const invoiceAdd = document.getElementsByClassName("invoice-add")[0];
     invoiceAdd.classList.toggle("hide-show");
-    invoiceTest()
+    invoiceTest();
   }
   function invoiceTest() {
     const userTo = document.getElementById("userTo");
-    const userEmail = document.getElementById("userEmail");
+    const userEmail = localStorage.getItem("userEmail");
     const userDueDate = document.getElementById("userDueDate");
-    const userSelect = document.getElementById("userSelect");
+    const userCreatedDate = document.getElementById("userCreatedDate");
+    const userTerm = document.getElementById("userTerm");
+    const userPaid = document.getElementById("userPaid");
     const userDescription = document.getElementById("userDescription");
     const userPrice = document.getElementById("userPrice");
-    const addForm = document.getElementById('add-form');
-    addForm.addEventListener('submit', (e) =>{
-      e.preventDefault()
+    const userId = localStorage.getItem("userId");
+    const addForm = document.getElementById("add-form");
+    addForm.addEventListener("submit", (e) => {
+      e.preventDefault();
       axios
-      .post(`http://167.235.158.238:3001/invoices`, {
-        to: userTo.value,
-        email: userEmail.value,
-        dueDate: userDueDate.value,
-        term: userSelect.value,
-        description: userDescription.value,
-        price: userPrice.value,
-      })
-      .then((res) => {
-        setAddInvoice(res.data);
-        console.log(res.data);
-      })
-      .catch((error) => {
-        console.log("Qo'shib bo'lmadi");
-      });
-    })
+        .post(
+          `http://167.235.158.238:3001/invoices`,
+          {
+            to: userTo.value,
+            email: `${userEmail}`,
+            dueDate: userDueDate.value,
+            createdDate: userCreatedDate.value,
+            term: +userTerm.value,
+            paid: +userPaid.value,
+            description: userDescription.value,
+            price: userPrice.value,
+            userId: +userId,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${getAccessToken()}`,
+            },
+          }
+        )
+        .then((res) => {
+          setAddInvoice(res.data);
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.log("Qo'shib bo'lmadi");
+        });
+    });
   }
 
   return (
@@ -45,27 +60,46 @@ function MainHeader() {
       <div className="invoice-add">
         <form action="" id="add-form">
           <label htmlFor="userTo">Ism</label>
-          <input required id="userTo" type="text" placeholder="Ismingizni kiriting" />
-          <label htmlFor="userEmail">Email</label>
-          <input required
-            id="userEmail"
-            type="email"
-            placeholder="Emailingizni kiriting"
+          <input
+            required
+            id="userTo"
+            type="text"
+            placeholder="Ismingizni kiriting"
           />
-          <label htmlFor="userDueDate">Due Date</label>
-          <input required id="userDueDate" type="date" />
-          <label htmlFor="userSelect">Term</label>
-          <select name="select" id="userSelect">
+          <div className="add-date">
+            <label htmlFor="userDueDate">
+              Due Date
+              <input required id="userDueDate" type="date" />
+            </label>
+            <label htmlFor="userCreatedDate">
+              Create Date
+              <input required id="userCreatedDate" type="date" />
+            </label>
+          </div>
+          <label htmlFor="userTerm">Term</label>
+          <select name="select" id="userTerm">
             <option value="1">1</option>
             <option value="7">7</option>
             <option value="14">14</option>
             <option value="30">30</option>
           </select>
+          <label htmlFor="userPaid">Paid</label>
+          <select name="select" id="userPaid">
+            <option value="1">true</option>
+            <option value="0">false</option>
+          </select>
           <label htmlFor="userDescription">Description</label>
-          <input required id="userDescription" type="text" placeholder="Description" />
+          <input
+            required
+            id="userDescription"
+            type="text"
+            placeholder="Description"
+          />
           <label htmlFor="userPrice">Price</label>
           <input required id="userPrice" type="number" placeholder="Price" />
-          <button id="add-btn">Submit</button>
+          <button id="add-btn">
+            Submit
+          </button>
         </form>
       </div>
       <div className="main-header__col-left">

@@ -56,20 +56,21 @@
       z-index: 21;
       color: #fff;
       height: 175vh;
-      opacity: 0;
+      display: none;
       transition: 0.5s;
 
       #add-form {
             position: fixed;
-            top: 110px;
+            top: 0px;
             left: 13%;
             width: 350px;
             margin: auto;
             display: flex;
             flex-direction: column;
+            overflow-y: scroll;
 
             input {
-                  height: 35px;
+                  height: 30px;
                   padding: 5px 10px;
                   font-weight: 600;
                   font-size: 14px;
@@ -80,14 +81,16 @@
                   margin-top: 10px;
             }
 
-            #userSelect {
-                  height: 35px;
+            select {
+                  height: 30px;
                   padding: 5px 10px;
                   font-weight: 600;
                   font-size: 14px;
                   margin: 5px 0;
             }
-
+            .add-date{
+                  display: flex;
+            }
             #add-btn {
                   margin-top: 15px;
                   width: 100px;
@@ -103,5 +106,5 @@
 }
 
 .hide-show{
-      opacity: 1;
+      display: block;
 }

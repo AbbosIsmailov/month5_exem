@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { setAccessToken, getAccessToken } from "../utilits/localeStorage";
 function LogIn() {
   const navigate = useNavigate();
+  if (getAccessToken()) {
+    navigate("/main");
+  }
   function loginFunction() {
     const loginEmail = document.getElementById("login-email");
     const loginPassword = document.getElementById("login-password");
@@ -18,6 +21,9 @@ function LogIn() {
         })
         .then((response) => {
           setAccessToken(response.data.accessToken);
+          console.log(response.data);
+          localStorage.setItem("userId", response.data.user.id)
+          localStorage.setItem("userEmail", response.data.user.email)
         });
       if (getAccessToken()) {
         navigate("/main");
