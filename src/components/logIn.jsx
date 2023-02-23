@@ -1,12 +1,10 @@
 import axios from "axios";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setAccessToken, getAccessToken } from "../utilits/localeStorage";
 function LogIn() {
   const navigate = useNavigate();
-  if (getAccessToken()) {
-    navigate("/main");
-  }
+
   function loginFunction() {
     const loginEmail = document.getElementById("login-email");
     const loginPassword = document.getElementById("login-password");
@@ -22,8 +20,8 @@ function LogIn() {
         .then((response) => {
           setAccessToken(response.data.accessToken);
           console.log(response.data);
-          localStorage.setItem("userId", response.data.user.id)
-          localStorage.setItem("userEmail", response.data.user.email)
+          localStorage.setItem("userId", response.data.user.id);
+          localStorage.setItem("userEmail", response.data.user.email);
         });
       if (getAccessToken()) {
         navigate("/main");
@@ -32,7 +30,14 @@ function LogIn() {
   }
 
   return getAccessToken() ? (
-    navigate("/main")
+    <section className="login-page">
+      <div className="main-page">
+        <h2>Siz ro'yhatdan o'tgansiz</h2>
+        <Link className="main-page__link" to={"/main"}>
+          Main Page
+        </Link>
+      </div>
+    </section>
   ) : (
     <section className="login-page">
       <form action="" id="login-form">

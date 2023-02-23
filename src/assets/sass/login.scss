@@ -1,11 +1,11 @@
-.login-page{
+.login-page {
       width: calc(100vw - 10px);
       height: 100vh;
       background: #181b33;
       color: white;
 }
 
-#login-form{
+#login-form {
       width: 500px;
       margin: 30vh auto;
       display: flex;
@@ -13,20 +13,23 @@
       padding: 30px 20px;
       flex-direction: column;
       font-weight: 500;
-      #login-email{
+
+      #login-email {
             height: 35px;
             margin-bottom: 20px;
             margin-top: 5px;
             padding: 5px 10px;
             font-size: 14px;
       }
-      #login-password{
+
+      #login-password {
             height: 35px;
             margin-top: 5px;
             padding: 5px 10px;
             font-size: 14px;
       }
-      .login-btn{
+
+      .login-btn {
             width: 150px;
             height: 35px;
             background: #fff;
@@ -35,5 +38,23 @@
             margin-top: 10px;
             font-size: 14px;
             cursor: pointer;
+      }
+}
+
+.main-page {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .main-page__link {
+            margin: 20px 0;
+            cursor: pointer;
+            border: 1px solid #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #fff;
       }
 }
